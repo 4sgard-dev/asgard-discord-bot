@@ -25,3 +25,13 @@ export class Example {
     }
   }
 }
+// Get imdb link from letterboxd
+function getImdbLink(letterboxdUrl: string): any {
+  const regex = new RegExp("^(?:http:\\/\\/|https:\\/\\/)?(?:www\\.)?(?:letterboxd.com\\/film\\/)([a-zA-Z0-9]*)");
+  const letterboxdId = regex.exec(letterboxdUrl)?.[1];
+  if(!letterboxdId){
+    return;
+  }
+  const url = `https://letterboxd.com/api/v2/film/${letterboxdId}/imdb/`;
+  return axios.get(url).then(res => res.data.imdb_id).catch(console.error);
+}
