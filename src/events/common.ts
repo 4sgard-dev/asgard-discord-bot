@@ -13,7 +13,6 @@ export class Example {
 
       let imdbLink = message.content;
 
-      console.log(message.content);
       if (message.content.startsWith('https://letterboxd.com/')) {
         const response = await axios.get(message.content, {
           headers: {
@@ -26,7 +25,6 @@ export class Example {
 
         if (element) {
           const href = element.getAttribute('href')
-          console.log(href);
 
           if (!href){
             return
