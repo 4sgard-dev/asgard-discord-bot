@@ -16,7 +16,7 @@
     "@discordx/importer": "^1.1.9",
     "@discordx/pagination": "^2.1.2",
     "axios": "^0.27.2",
-    "discord-api-types": "^0.33.1",
+    "discord-api-types": "^0.37.3",
     "discord.js": "^13.7.0",
     "discordx": "^9.6.0",
     "jsdom": "^19.0.0",
