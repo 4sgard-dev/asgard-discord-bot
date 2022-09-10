@@ -2,6 +2,7 @@ import type { ArgsOf } from "discordx";
 import { Discord, On } from "discordx";
 import axios from "axios";
 import * as jsdom from "jsdom";
+import { ReactionEmoji } from "discord.js";
 
 @Discord()
 export class Example {
@@ -44,7 +45,27 @@ export class Example {
 
       // create movie suggestion
       if(imdbId){
-        await axios.post(process.env.API_URL + '/suggestions', {imdbId}, {headers: {'discord-id': message.member?.id}}).catch(console.error);
+        try {
+          const suggestionResponse = await axios.post(process.env.API_URL + '/suggestions', {imdbId}, {headers: {'discord-id': message.member?.id}, validateStatus: () => true});
+
+          let reactionEmoji = '🥵';
+          switch (suggestionResponse.status) {
+            case 201:
+              reactionEmoji = '💾';
+              break;
+            case 409:
+              reactionEmoji = '🚨';
+              break;
+          }
+
+          await message.react(reactionEmoji);
+
+          if (suggestionResponse.status === 201){
+            await message.react('💾');
+          }
+        } catch (e) {
+          console.error(e);
+        }
       }
     }
   }
