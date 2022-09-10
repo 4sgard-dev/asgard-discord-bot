@@ -17,9 +17,9 @@
     "@discordx/pagination": "^2.1.2",
     "@napi-rs/canvas": "^0.1.22",
     "axios": "^0.27.2",
-    "discord-api-types": "^0.33.1",
-    "discord.js": "^13.7.0",
-    "discordx": "^9.6.0",
+    "discord-api-types": "^0.37.8",
+    "discord.js": "^14.3.0",
+    "discordx": "^11.1.12",
     "jsdom": "^19.0.0",
     "reflect-metadata": "^0.1.13"
   },

@@ -2,7 +2,7 @@ import "reflect-metadata";
 
 import { dirname, importx } from "@discordx/importer";
 import type { Interaction, Message } from "discord.js";
-import { Intents } from "discord.js";
+import { GatewayIntentBits, IntentsBitField } from "discord.js";
 import { Client } from "discordx";
 
 export const bot = new Client({
@@ -11,11 +11,16 @@ export const bot = new Client({
 
   // Discord intents
   intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MEMBERS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-    Intents.FLAGS.GUILD_VOICE_STATES,
+    IntentsBitField.Flags.Guilds,
+    IntentsBitField.Flags.GuildMembers,
+    IntentsBitField.Flags.GuildMessages,
+    IntentsBitField.Flags.GuildMessageReactions,
+    IntentsBitField.Flags.GuildVoiceStates,
+    GatewayIntentBits.DirectMessages,
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildBans,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
   ],
 
   // Debug logs are disabled in silent mode
@@ -33,9 +38,6 @@ bot.once("ready", async () => {
 
   // Synchronize applications commands with Discord
   await bot.initApplicationCommands();
-
-  // Synchronize applications command permissions with Discord
-  await bot.initApplicationPermissions();
 
   // To clear all guild commands, uncomment this line,
   // This is useful when moving from guild commands to global commands

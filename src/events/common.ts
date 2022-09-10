@@ -5,7 +5,7 @@ import * as jsdom from "jsdom";
 
 @Discord()
 export class Example {
-  @On("messageCreate")
+  @On({event: "messageCreate"})
   private async onMessage(
     [message]: ArgsOf<"messageCreate">
   ) {
