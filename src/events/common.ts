@@ -2,7 +2,6 @@ import type { ArgsOf } from "discordx";
 import { Discord, On } from "discordx";
 import axios from "axios";
 import * as jsdom from "jsdom";
-import { ReactionEmoji } from "discord.js";
 
 @Discord()
 export class Example {
