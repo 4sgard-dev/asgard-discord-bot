@@ -20,7 +20,7 @@
     "discord-api-types": "^0.37.8",
     "discord.js": "^14.3.0",
     "discordx": "^11.1.12",
-    "jsdom": "^19.0.0",
+    "jsdom": "^20.0.1",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
