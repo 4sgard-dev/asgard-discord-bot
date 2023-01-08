@@ -3,46 +3,6 @@ import { ButtonInteraction, ButtonBuilder, ButtonStyle, ActionRowBuilder } from 
 import { Discord, Slash, SlashChoice, SlashOption } from 'discordx';
 import { ContextMenu } from "discordx"
 
-@Discord()
-export class slashPing {
-    @Slash({ name: "ping", description: "PING!" })
-    async onPing(interaction: CommandInteraction) {
-        interaction.reply("PONG!");
-    }
-}
-
-@Discord()
-export class slashPingChoice {
-    @Slash({ name: "pingchoice", description: "PING! But with Choice" })
-
-    async onPing(
-        @SlashChoice("Human", "Android", "Dev")
-        @SlashOption({
-            description: "What are you?",
-            name: "what",
-            required: true,
-            type: ApplicationCommandOptionType.String,
-        })
-        what: string,
-        @SlashOption({
-            description: "fuel",
-            name: "fuel",
-            required: true,
-            type: ApplicationCommandOptionType.String,
-        })
-        fuel: number,
-
-        interaction: CommandInteraction
-    ) {
-        try {
-            interaction.reply(`PONG!! Mr.${what}. You are currently having ${fuel} of fuel`)
-        }
-        catch (error) {
-            console.error(error);
-        }
-    }
-}
-
 import { ButtonComponent,ComponentOptions } from "discordx";
 interface IGame{
     label:string,
@@ -92,28 +52,5 @@ export class buttonHandler {
         interaction.reply({
             components: [buttonRow],
         });
-    }
-}
-
-import { ApplicationCommandType, MessageContextMenuCommandInteraction, UserContextMenuCommandInteraction } from "discord.js";
-
-@Discord()
-export class Example {
-    @ContextMenu({
-        name: "Hello from discordx",
-        type: ApplicationCommandType.Message,
-    })
-    messageHandler(interaction: MessageContextMenuCommandInteraction): void {
-        console.log("I am message");
-        interaction.reply("message interaction works");
-    }
-
-    @ContextMenu({
-        name: "Hello from discordx",
-        type: ApplicationCommandType.User,
-    })
-    userHandler(interaction: UserContextMenuCommandInteraction): void {
-        console.log(`Selected user: ${interaction.targetId}`);
-        interaction.reply("user interaction works");
     }
 }
