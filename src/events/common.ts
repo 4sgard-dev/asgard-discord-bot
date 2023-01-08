@@ -35,7 +35,7 @@ export class Example {
       }
 
       // check if has imdbId
-      const regex = new RegExp("^(?:http:\\/\\/|https:\\/\\/)?(?:www\\.)?(?:imdb.com\\/title\\/)?(tt[0-9]*)");
+      const regex = new RegExp("^(?:http:\\/\\/|https:\\/\\/)?(?:www\\.|m\\.)?(?:imdb.com\\/title\\/)?(tt[0-9]*)");
       const imdbId = regex.exec(imdbLink)?.[1];
 
       if(!message.member?.id){
