@@ -20,11 +20,11 @@
     "discord-api-types": "^0.37.8",
     "discord.js": "^14.3.0",
     "discordx": "^11.1.12",
-    "jsdom": "^19.0.0",
+    "jsdom": "^21.1.1",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
-    "@types/jsdom": "^16.2.14",
+    "@types/jsdom": "^21.1.0",
     "@types/node": "^18.11.18",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
